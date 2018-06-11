@@ -13,16 +13,16 @@ pageEncoding="UTF-8"%>
 <meta name="Author" content="fkjava.org" />
 <meta name="Copyright" content="All Rights Reserved." />
 <!-- main.css是购物商城主样式 -->
-<link rel=stylesheet type=text/css href="css/main.css" />
+<link rel=stylesheet type=text/css href="${pageContext.request.contextPath }/res/css/main.css" />
 <!-- header.js输出头部信息 -->
-<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/res/js/header.js"></script>
 <!-- regex.js是正则表达式的一系列判断 -->
-<script type=text/javascript src=js/regex.js></script>
+<script type=text/javascript src="${pageContext.request.contextPath }/res/js/regex.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
-<script src="js/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/res/css/sweetalert2.min.css">
+<script src="${pageContext.request.contextPath }/res/js/sweetalert2.min.js"></script>
 <!-- for IE support -->
-<script src="js/es6-promise.min.js"></script>
+<script src="${pageContext.request.contextPath }/res/js/es6-promise.min.js"></script>
 
 <script type="text/javascript">
 	var changFn = function() {
@@ -322,7 +322,7 @@ pageEncoding="UTF-8"%>
 						<span class="label">&nbsp;</span>
 						<!-- a href 调用js函数需要加javascript:function();  -->
 						<a href="javascript:void(0);" onclick="onRegister();"><img
-							src="images/register.jpg"> </a>
+							src="${pageContext.request.contextPath }/res/images/register.jpg"> </a>
 					</div>
 				</div>
 			</form>

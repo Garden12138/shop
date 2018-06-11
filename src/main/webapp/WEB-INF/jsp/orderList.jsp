@@ -8,9 +8,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon"/>
 		<!-- main.css是购物商城主样式 -->
-		<link rel=stylesheet type=text/css href="css/main.css"/>
+		<link rel=stylesheet type=text/css href="${pageContext.request.contextPath }/res/css/main.css"/>
 		<!-- header.js输出头部信息 -->
-		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/res/js/header.js"></script>
 		
 		<script type="text/javascript">
 			var viewitem = function(obj, id){
@@ -125,7 +125,7 @@
 	<!---- middle end----->
 	<!--bottom part-->
 	<div style="width: 1060px;margin: 0px auto;">
-  		<img src="images/step.jpg"/>
+  		<img src="${pageContext.request.contextPath }/res/images/step.jpg"/>
   	</div>
 </body> 
 </html>

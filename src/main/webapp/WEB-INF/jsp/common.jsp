@@ -5,8 +5,8 @@
  <%@taglib  prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
  <%@taglib  prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
  
- <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
+ <script type="text/javascript" src="${pageContext.request.contextPath }/res/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/res/js/jquery-ui.js"></script>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 
 

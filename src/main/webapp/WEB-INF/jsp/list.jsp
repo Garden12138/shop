@@ -98,7 +98,7 @@
 				<c:forEach items="${firstArticleTypes}" var="firstArticleType">
 					<div class="item">
 						<h3>
-							<b>&gt;</b><a href="/index.do?typecode=${firstArticleType.code}">·${firstArticleType.name}</a>
+							<b>&gt;</b><a href="${pageContext.request.contextPath }/index.do?typecode=${firstArticleType.code}">·${firstArticleType.name}</a>
 						</h3>
 					</div>
 				</c:forEach>
@@ -134,7 +134,7 @@
 									<dt>
 										<a href="item.do?id=${article.id}" title="${article.title}"
 											target="_self"> <img
-											src="images/article/${article.image}" width="132" height="96" />
+											src="${pageContext.request.contextPath }/res/images/article/${article.image}" width="132" height="96" />
 										</a>
 									</dt>
 									<dd>
@@ -163,7 +163,7 @@
 
 	<!--bottom part-->
 	<div style="width: 1060px;margin: 0px auto;">
-		<img src="images/step.jpg" />
+		<img src="${pageContext.request.contextPath }/res/images/step.jpg" />
 	</div>
 </body>
 </html>

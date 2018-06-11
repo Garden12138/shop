@@ -8,9 +8,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon" />
 		<!-- main.css是购物商城主样式 -->
-		<link rel=stylesheet type=text/css href="css/main.css"/>
+		<link rel=stylesheet type=text/css href="${pageContext.request.contextPath }/res/css/main.css"/>
 		<!-- header.js输出头部信息 -->
-		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/res/js/header.js"></script>
 		<script type="text/javascript">
 		//购买数量，失去焦点
 		function  blurFn(){
@@ -94,7 +94,7 @@
 						<li>
 							<span>评分：</span>
 							<div class="con" id="star10918727">
-								<div style="float: left; margin: 2px 0 0 5px; width: 64px; height: 12px; background-image: url(images/icon_clubs.gif); background-repeat: no-repeat; overflow: hidden;"></div>
+								<div style="float: left; margin: 2px 0 0 5px; width: 64px; height: 12px; background-image: url(${pageContext.request.contextPath }/res/images/icon_clubs.gif); background-repeat: no-repeat; overflow: hidden;"></div>
 								<a href="javascript:void(0);" class="num-comment">(已有151人评价)</a>
 							</div>
 						</li>
@@ -146,9 +146,9 @@
 						</dl>
 						<div class="btns">
 							<a id="InitCartUrl" href="javascript:void(0);" onclick="buy();" class="btn-append"
-								style="background-image: url(images/btn_new.jpg)">添加到购物车</a> 
+								style="background-image: url(${pageContext.request.contextPath }/res/images/btn_new.jpg)">添加到购物车</a> 
 							<input	value="关&nbsp;注"
-								style="width: 68px; height: 30px; padding: 4px 0 4px 18px; margin-top: 7px; background: url(images/btn_attention.jpg) no-repeat 0 0; border: 0; line-height: 0; color: transparent; font-size: 0; *padding-bottom: 0px;"
+								style="width: 68px; height: 30px; padding: 4px 0 4px 18px; margin-top: 7px; background: url(${pageContext.request.contextPath }/res/images/btn_attention.jpg) no-repeat 0 0; border: 0; line-height: 0; color: transparent; font-size: 0; *padding-bottom: 0px;"
 								id="coll10918727" 
 								type="button" />
 							<div class="clr"></div>
@@ -162,7 +162,7 @@
 	
 	<!--bottom part-->
 	<div style="width: 1060px;margin: 0px auto;">
-  		<img src="images/step.jpg"/>
+  		<img src="${pageContext.request.contextPath }/res/images/step.jpg"/>
   	</div>
 </body> 
 </html>

@@ -7,11 +7,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>购物商城-登录页面</title>
 		<!-- main.css是网站前台主要的CSS -->
-		<link rel=stylesheet type=text/css href="css/main.css"/>
+		<link rel=stylesheet type=text/css href="${pageContext.request.contextPath }/res/css/main.css"/>
 		<!-- login.css作用于登录的CSS -->
-		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/res/css/login.css"/>
 		<!-- header部分 -->
-		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/res/js/header.js"></script>
 		<script type="text/javascript">
 			if (parent.window.location != window.location){
 				parent.window.location = window.location;
@@ -67,14 +67,14 @@
 	<form name="loginform" method="post" action="login.do" id="loginform">
 		<br />
 		<input type="hidden" name="method" value="submitTable"/>
-		<div class="login_main" style="background: url(images/login_bg.jpg) no-repeat center 0;">
+		<div class="login_main" style="background: url(${pageContext.request.contextPath }/res/images/login_bg.jpg) no-repeat center 0;">
 			<div class="login_panel">
 				<!--登录框开始-->
 				<div class="right_panel">
 					<div class="login_frame_border">
 						<div class="login_frame">
 							<div class="login_title">
-								<font color="red">${message}</font>还不是商城用户？&nbsp;&nbsp;<a href="register.action">立即注册</a>
+								<font color="red">${message}</font>还不是商城用户？&nbsp;&nbsp;<a href="${pageContext.request.contextPath }/register.action">立即注册</a>
 							</div>
 							<div class="login_frist clearfix" id="user_div_name">
 								<label>登录名</label> 
