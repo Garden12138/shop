@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -30,6 +31,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @ComponentScan(basePackages={"com.garden.web.dao","com.garden.web.service"},
                excludeFilters={@Filter(type=FilterType.ANNOTATION,value=EnableWebMvc.class)}) 
 @ImportResource("classpath:spring-config.xml")
+@Import(UtilsConfig.class)
 public class RootConfig {
 	
 	//获取数据源配置数据
