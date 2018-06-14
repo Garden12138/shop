@@ -12,6 +12,15 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 	
+	<bean class="com.garden.web.config.DataSourceConfig"/>
+	
+	<!-- Spring 与 MyBatis整合 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:mybatis-mapper/*.xml"></property>
+        <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+    </bean>
+	
 	<!-- 配置注解方式管理事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 

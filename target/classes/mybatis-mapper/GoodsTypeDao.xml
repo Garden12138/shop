@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsTypeDao">	
+	<insert id="addGoodsType" parameterType="GoodsTypeEntity">
+		INSERT INTO 
+		    tb_goods_type(f_id,f_name,f_code,f_remark,f_level) 
+		VALUES
+		    (#{id},#{name},#{code},#{remark},#{level});
+	</insert>
+	<select id="findGoodsTypesByLevel" parameterType="int" resultMap="GoodsTypeEntityMapper">
+	    SELECT 
+	        f_id,f_name,f_code,f_remark,f_level
+	    FROM 
+	        tb_goods_type
+	    WHERE 
+	        f_level = #{level}
+	</select>
+	<select id="findSecondGoodsTypesByCode" parameterType="string" resultMap="GoodsTypeEntityMapper">
+	    SELECT
+	        f_id,f_name,f_code,f_remark,f_level
+	    FROM
+	        tb_goods_type
+	    WHERE
+	        f_code
+	    LIKE
+	        CONCAT(#{code},'%')
+	    AND
+	        f_code != #{code}
+	</select>
+	<resultMap type="GoodsTypeEntity" id="GoodsTypeEntityMapper">
+        <id property="id" column="f_id" />
+        <result property="name" column="f_name"/>
+        <result property="code" column="f_code"/>
+        <result property="remark" column="f_remark"/>
+        <result property="level" column="f_level"/>
+    </resultMap>
+</mapper>

@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS tb_goods_type;
 CREATE TABLE tb_goods_type(
     f_id VARCHAR(32) PRIMARY KEY,    -- 商品类型id
     f_name VARCHAR(255),             -- 商品类型名称
-    f_code VARCHAR(255) UNIQUE,             -- 商品类型代码
+    f_code VARCHAR(255) UNIQUE,      -- 商品类型代码
     f_remark VARCHAR(255)            -- 商品类型标签
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -24,7 +24,7 @@ CREATE TABLE tb_goods(
     f_price DOUBLE,                  -- 商品单价
     f_discount DOUBLE,               -- 商品折扣
     f_locality VARCHAR(255),         -- 生产地
-    f_createData DATETIME,           -- 生成日期
+    f_createDate DATETIME,           -- 生成日期
     f_supplier VARCHAR(255),         -- 供应商
     f_putAwayDate DATETIME,          -- 上架日期
     f_storage INT,                   -- 存货量

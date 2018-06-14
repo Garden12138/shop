@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
+ <%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@taglib  prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
+ <%@taglib  prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -75,9 +76,9 @@
 			<div class="w960 center">
 				<ul>
 					<li><a title="首页" href="index.do">首页</a></li>
-					<c:forEach items="${firstArticleTypes}" var="firstArticleType">
-						<li><a title="${firstArticleType.name}"
-							href="${ctx}/index.do?typecode=${firstArticleType.code}">${firstArticleType.name}</a>
+					<c:forEach items="${FirstLevelGoodsTypeCatalog}" var="firstLevelGoodsType">
+						<li><a title="${firstLevelGoodsType.name}"
+							href="#">${firstLevelGoodsType.name}</a>
 						</li>
 					</c:forEach>
 				</ul>
@@ -95,10 +96,10 @@
 				</h2>
 			</div>
 			<div class="mc">
-				<c:forEach items="${firstArticleTypes}" var="firstArticleType">
+				<c:forEach items="${FirstLevelGoodsTypeCatalog}" var="firstLevelGoodsType">
 					<div class="item">
 						<h3>
-							<b>&gt;</b><a href="${pageContext.request.contextPath }/index.do?typecode=${firstArticleType.code}">·${firstArticleType.name}</a>
+							<b>&gt;</b><a href="#">·${firstLevelGoodsType.name}</a>
 						</h3>
 					</div>
 				</c:forEach>
@@ -110,10 +111,10 @@
 				<form action="index.do" method="post" name="search">
 					物品类型： <select name="typecode" id="typecode"
 						onchange="reloadIndex(this.value)">
-						<option value="${firstArticleType.code}">${firstArticleType.name}</option>
-						<c:forEach items="${allSecondArticleTypes}"
-							var="secondArticleType">
-							<option value="${secondArticleType.code}">----${secondArticleType.name}</option>
+						<option value="${FirstLevelGoodsTypeCatalog.get(0).code}">${FirstLevelGoodsTypeCatalog.get(0).name}</option>
+						<c:forEach items="${SecondLevelGoodsTypeCatalogByCode}"
+							var="SecondLevelGoodsTypeCatalog">
+							<option value="${SecondLevelGoodsTypeCatalog.code}">----${SecondLevelGoodsTypeCatalog.name}</option>
 						</c:forEach>
 					</select> <input name="keyword" id="keyword" type="text" value="${keyword}"
 						size="50" />
@@ -123,30 +124,30 @@
 			<!-- 显示所有书籍 -->
 			<div id="tabs" style="Width:750px;background-color:white;">
 				<ul>
-					<li><a href="tabs-1">${firstArticleType.name }</a></li>
+					<li><a href="tabs-1">${FirstLevelGoodsTypeCatalog.get(0).name}</a></li>
 				</ul>
 				<div class="sales-queue" id="tabs-1"
 					style="background-color:white;margin-top:-25px;">
 					<ul class="goods-queue3">
-						<c:forEach items="${articles}" var="article">
+						<c:forEach items="${Page.getPageData()}" var="goods">
 							<li id="selbgc11">
 								<dl class="item-des">
 									<dt>
-										<a href="item.do?id=${article.id}" title="${article.title}"
+										<a href="#" title="${goods.title}"
 											target="_self"> <img
-											src="${pageContext.request.contextPath }/res/images/article/${article.image}" width="132" height="96" />
+											src="${goods.image}" width="132" height="96" />
 										</a>
 									</dt>
 									<dd>
-										<s>¥:<fmt:formatNumber value="${article.price}"
+										<s>¥:<fmt:formatNumber value="${goods.price}"
 												pattern="0.00"></fmt:formatNumber> </s> <strong>¥:<fmt:formatNumber
-												value="${article.price* article.discount}" pattern="0.00"></fmt:formatNumber>
+												value="${goods.price* goods.discount}" pattern="0.00"></fmt:formatNumber>
 										</strong>
 									</dd>
 									<dd>
 										<h2>
-											<a href="item.do?id=${article.id}" title="${article.title}"
-												target="_self">${article.title}</a>
+											<a href="#" title="${goods.title}"
+												target="_self">${goods.title}</a>
 										</h2>
 									</dd>
 								</dl>
@@ -154,7 +155,12 @@
 						</c:forEach>
 					</ul>
 					<!-- 分页标签 -->
-					<div class="pagebottom" id="pager" style="clear:both;"></div>
+					<div class="pagebottom" id="pager" style="clear:both;">
+					    总共:${Page.lastPage}页           
+					    目前第:${Page.pageNumber}页
+					  <span>上一页:${Page.prev}</span>
+					  <span>下一页:${Page.next}</span>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -26,7 +26,7 @@ public class TestDaoTest {
 	@Test
 	public void addTestEntityTest(){
 		TestEntity testEntity = new TestEntity();
-		testEntity.setId(1);
+		testEntity.setId(3);
 		testEntity.setMessage("id is 1 record");
 		testDao.addTestEntity(testEntity);
 	}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsDao">	
+	<insert id="addGoods" parameterType="GoodsEntity">
+		INSERT INTO 
+		    tb_goods(f_id,f_title,f_description
+		            ,f_price,f_discount,f_locality
+		            ,f_createDate,f_supplier,f_putAwayDate
+		            ,f_storage,f_is_remove,f_image
+		            ,f_goods_type_code) 
+		VALUES
+		    (#{id},#{title},#{description}
+		    ,#{price},#{discount},#{locality}
+		    ,#{createDate},#{supplier},#{putAwayDate}
+		    ,#{storage},#{isRemove},#{image}
+		    ,#{goods_type_code});
+	</insert>
+	<select id="findTotal" resultType="Integer">
+	    SELECT
+	    COUNT(*)
+	    FROM
+	        tb_goods
+	    WHERE
+	        <choose>
+	            <when test="codeLength == 4">
+	                f_goods_type_code
+	                LIKE
+	                CONCAT(#{code},"%")
+	            </when>
+	            <otherwise>
+	                f_goods_type_code = #{code}
+	            </otherwise>
+	        </choose> 
+	</select>
+	<select id="findGoodsByCode" resultMap="GoodsEntityMapper">
+	    SELECT
+	        f_id,f_title,f_description,
+	        f_price,f_discount,f_locality,
+	        f_createDate,f_supplier,f_putAwayDate,
+	        f_storage,f_is_remove,f_image,
+	        f_goods_type_code
+	    FROM
+	        tb_goods
+	    WHERE
+            <choose>
+                <when test="codeLength == 4">
+                    f_goods_type_code
+                    LIKE
+                    CONCAT(#{code},"%")
+                </when>
+                <otherwise>
+                    f_goods_type_code = #{code}
+                </otherwise>
+            </choose>
+	    LIMIT 
+	        #{start},#{prePage}
+	</select>
+	<resultMap type="GoodsEntity" id="GoodsEntityMapper">
+        <id property="id" column="f_id" />
+        <result property="title" column="f_title"/>
+        <result property="description" column="f_description"/>
+        <result property="price" column="f_price"/>
+        <result property="discount" column="f_discount"/>
+        <result property="locality" column="f_locality"/>
+        <result property="createDate" column="f_createDate"/>
+        <result property="supplier" column="f_supplier"/>
+        <result property="putAwayDate" column="f_putAwayDate"/>
+        <result property="storage" column="f_storage"/>
+        <result property="isRemove" column="f_is_remove"/>
+        <result property="image" column="f_image"/>
+        <result property="goods_type_code" column="f_goods_type_code"/>
+    </resultMap>
+</mapper>
